@@ -42,4 +42,24 @@ class Api {
             }
         )
     }
+
+    fun getDetailsPokemons(id: String, listener:(pokemon: Pokemon?) -> Unit){
+
+        service?.getDetailsPokemons(id)?.enqueue(
+
+            object : Callback<Pokemon>{
+                override fun onResponse(
+                    call: Call<Pokemon>,
+                    response: Response<Pokemon>
+                ) {
+                    listener(response.body())
+                }
+
+                override fun onFailure(call: Call<Pokemon>, t: Throwable) {
+                    listener(null)
+                }
+            }
+        )
+    }
+
 }
