@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class Pokemon(
     val name:String,
+    val abilities:List<Abilities>,
     val url:String,
     val stats:List<Stats>,
-    val abilities:List<Abilities>,
+    val types:List<Types>,
     val moves:List<Moves>,
-    val types:List<Types>
 )
